@@ -59,10 +59,10 @@ const server = new McpServer({
 server.registerTool(
     'generate_qr_code',
     {
-        description: 'Generate a QR code from text or a URL. Saves the output to disk and returns the generated image or SVG text.',
+        description: 'Generate a QR code from text or a URL. Saves the output to disk and returns the generated image.',
         inputSchema: {
             text: z.string().min(1).describe('Text, URL, or other payload to encode in the QR code.'),
-            format: z.enum(['png', 'svg']).default('png').describe('Output format. PNG returns inline image data; SVG returns SVG text.'),
+            format: z.enum(['png', 'svg']).default('png').describe('Output format. Both PNG and SVG return inline image data.'),
             size: z.number().int().min(128).max(4096).default(512).describe('PNG width/height in pixels. Ignored for SVG.'),
             margin: z.number().int().min(0).max(20).default(4).describe('Quiet zone around the QR code, measured in QR modules.'),
             error_correction_level: z.enum(['L', 'M', 'Q', 'H']).default('M').describe('QR error correction level. H is largest and most resilient.'),
@@ -89,7 +89,7 @@ server.registerTool(
                 return {
                     content: [
                         { type: 'text', text: `QR code generated and saved to: ${filePath}` },
-                        { type: 'text', text: svg },
+                        { type: 'image', data: Buffer.from(svg, 'utf8').toString('base64'), mimeType: 'image/svg+xml' },
                     ],
                 };
             }
