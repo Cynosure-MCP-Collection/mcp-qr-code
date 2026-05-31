@@ -1,0 +1,45 @@
+{
+    "name": "@cynosure-mcp/qr-code",
+    "mcpName": "io.github.andreasjhagen/qr-code",
+    "version": "1.0.0",
+    "description": "MCP server for generating and reading QR codes",
+    "type": "module",
+    "main": "dist/index.js",
+    "bin": {
+        "qr-code": "dist/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "tsx src/index.ts"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.27.1",
+        "jsqr": "^1.4.0",
+        "qrcode": "^1.5.4",
+        "sharp": "^0.34.5",
+        "zod": "^3.24.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "@types/qrcode": "^1.5.5",
+        "tsx": "^4.19.0",
+        "typescript": "^5.7.0"
+    },
+    "files": [
+        "dist",
+        "server.json",
+        "icon.png"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "mcp",
+        "model-context-protocol",
+        "qr",
+        "qr-code",
+        "barcode",
+        "image"
+    ]
+}
