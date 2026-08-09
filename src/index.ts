@@ -59,6 +59,7 @@ const server = new McpServer({
 server.registerTool(
     'generate_qr_code',
     {
+        annotations: { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
         description: 'Generate a QR code from text or a URL. Saves the output to disk and returns the generated image.',
         inputSchema: {
             text: z.string().min(1).describe('Text, URL, or other payload to encode in the QR code.'),
@@ -118,6 +119,7 @@ server.registerTool(
 server.registerTool(
     'read_qr_code',
     {
+        annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
         description: 'Read and decode a QR code from an image file path or base64 image data. Supports common formats handled by sharp, including PNG, JPEG, WebP, GIF, and TIFF.',
         inputSchema: {
             image_path: z.string().optional().describe('Path to an image file containing a QR code.'),
