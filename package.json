@@ -1,7 +1,7 @@
 {
     "name": "@cynosure-mcp/qr-code",
     "mcpName": "io.github.andreasjhagen/qr-code",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "MCP server for generating and reading QR codes",
     "type": "module",
     "main": "dist/index.js",
