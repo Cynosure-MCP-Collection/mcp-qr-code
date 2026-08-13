@@ -41,5 +41,13 @@
         "qr-code",
         "barcode",
         "image"
-    ]
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Cynosure-MCP-Collection/mcp-qr-code.git"
+    },
+    "homepage": "https://github.com/Cynosure-MCP-Collection/mcp-qr-code#readme",
+    "bugs": {
+        "url": "https://github.com/Cynosure-MCP-Collection/mcp-qr-code/issues"
+    }
 }
